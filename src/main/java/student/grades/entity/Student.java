@@ -32,5 +32,4 @@ public class Student implements Serializable {
 	public void setStudentId(Grades studentId) {
 		this.studentId = studentId;
 	}
-	
 }

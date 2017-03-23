@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Mark {
@@ -12,16 +13,8 @@ public class Mark {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private Long score;
-	private String subjectId;
-
-	protected Mark() {
-
-	}
-
-	public Mark(Long score, String subjectId) {
-		this.score = score;
-		this.subjectId = subjectId;
-	}
+	@OneToOne
+	private Grades studentId;
 
 	public Long getId() {
 		return id;
@@ -39,11 +32,12 @@ public class Mark {
 		this.score = score;
 	}
 
-	public String getSubjectId() {
-		return subjectId;
+	public Grades getStudentId() {
+		return studentId;
 	}
 
-	public void setSubjectId(String subjectId) {
-		this.subjectId = subjectId;
+	public void setStudentId(Grades studentId) {
+		this.studentId = studentId;
 	}
+
 }
